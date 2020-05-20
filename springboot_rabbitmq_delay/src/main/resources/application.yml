@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: delay_mq
+
+  rabbitmq:
+    host: 192.168.110.128
+    port: 5672
+    password: guest
+    username: guest
