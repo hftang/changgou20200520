@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf的入门</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<!--输出hello数据-->
+<p th:text="${hello}"></p>
+测试 th:text =
+
+<form th:action="@{/test/hello}">
+    <button>提交</button>
+</form>
+
+<br>
+
+th:each测试
+
+<table>
+
+    <tr>
+        <td>下标</td>
+        <td>编号</td>
+        <td>姓名</td>
+        <td>地址</td>
+    </tr>
+
+    <tr th:each="user,userStart:${users}">
+
+        <td>
+            下标：<span th:text="${userStart.index}"></span>
+        </td>
+
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.address}"></td>
+
+    </tr>
+
+    <br>
+</table>
+
+
+-------------------------------------------------------------
+
+<div th:each="map,mapstat:${dataMap}">
+
+    <div th:text="${map}"></div>
+
+    key:<span th:text="${mapstat.current.key}"></span>
+    value:<span th:text="${mapstat.current.value}"></span>
+
+    ================================
+
+
+</div>
+
+=================================name===========================================<br>
+
+<div th:each="nm,nmstat:${names}">
+
+    <span th:text="${nmstat.count}"></span>
+    <span th:text="${nm}"></span>
+
+
+</div>
+
+=================================date============================================<br>
+
+
+<span th:text="${#dates.format(now,'yyyy-MM-dd hh:mm:ss')}"></span>
+
+
+=================================if============================================<br>
+
+<span th:if="${(age>18)}">大于十八岁</span>
+
+</body>
+</html>
